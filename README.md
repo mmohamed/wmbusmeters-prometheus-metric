@@ -45,13 +45,13 @@ spec:
 
 | Metric name | Metric type | Labels |
 |-------------|-------------|-------------|
-|water_cubic_used*|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\> <br/> prefix=\<meter-prefix-serial-number\> <br/> serial_number=\<meter-serial-number\> <br/> current_alarms=\<meter-current-alarms\> <br/> previous_alarms=\<meter-previous-alarms\>| 
-|heat_kwh_consumption|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\>| 
-|heat_cubic_consumption|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\>| 
-|heat_kwh_flow|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\>| 
-|heat_cubic_flow|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\>| 
-|heat_temperature_flow|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\>| 
-|heat_temperature_return|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\>| 
+|water_cubic_used*|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\> <br/> timestamp=\<meter-value-timestamp\> <br/> prefix=\<meter-prefix-serial-number\> <br/> serial_number=\<meter-serial-number\> <br/> current_alarms=\<meter-current-alarms\> <br/> previous_alarms=\<meter-previous-alarms\>| 
+|heat_kwh_consumption|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\> <br/> timestamp=\<meter-value-timestamp\>| 
+|heat_cubic_consumption|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\> <br/> timestamp=\<meter-value-timestamp\>| 
+|heat_kwh_flow|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\> <br/> timestamp=\<meter-value-timestamp\>| 
+|heat_cubic_flow|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\> <br/> timestamp=\<meter-value-timestamp\>| 
+|heat_temperature_flow|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\> <br/> timestamp=\<meter-value-timestamp\>| 
+|heat_temperature_return|Gauge|id=\<meter-id\> <br/> name=\<meter-name\> <br/> meter=\<meter-brand\> <br/> timestamp=\<meter-value-timestamp\>| 
 
 ## Build
 ```bash

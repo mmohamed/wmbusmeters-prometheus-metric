@@ -21,37 +21,37 @@ var (
 	waterCubicUsed = prometheus.NewDesc(
 		waterCubicUsedKey,
 		"Cubic meters of water used",
-		[]string{"id", "name", "meter", "prefix", "serial_number", "current_alarms", "previous_alarms"}, nil,
+		[]string{"id", "name", "meter", "timestamp", "prefix", "serial_number", "current_alarms", "previous_alarms"}, nil,
 	)
 	heatKwhConsumption = prometheus.NewDesc(
 		heatKwhConsumptionKey,
 		"KWH Heat consumption",
-		[]string{"id", "name", "meter"}, nil,
+		[]string{"id", "name", "meter", "timestamp"}, nil,
 	)
 	heatCubicConsumption = prometheus.NewDesc(
 		heatCubicConsumptionKey,
 		"Cubic Heat consumption",
-		[]string{"id", "name", "meter"}, nil,
+		[]string{"id", "name", "meter", "timestamp"}, nil,
 	)
 	heatCubicFlow = prometheus.NewDesc(
 		heatCubicFlowKey,
 		"Cubic Heat flow",
-		[]string{"id", "name", "meter"}, nil,
+		[]string{"id", "name", "meter", "timestamp"}, nil,
 	)
 	heatKwhFlow = prometheus.NewDesc(
 		heatKwhFlowKey,
 		"KWH Heat flow",
-		[]string{"id", "name", "meter"}, nil,
+		[]string{"id", "name", "meter", "timestamp"}, nil,
 	)
 	heatTemperatureFlow = prometheus.NewDesc(
 		heatTemperatureFlowKey,
 		"Celsius Heat flow temperature",
-		[]string{"id", "name", "meter"}, nil,
+		[]string{"id", "name", "meter", "timestamp"}, nil,
 	)
 	heatTemperatureReturn = prometheus.NewDesc(
 		heatTemperatureReturnKey,
 		"Celsius Heat return temperature",
-		[]string{"id", "name", "meter"}, nil,
+		[]string{"id", "name", "meter", "timestamp"}, nil,
 	)
 	
 )
@@ -74,12 +74,12 @@ func (collector *wmbusmetersCollector) Describe(ch chan<- *prometheus.Desc) {
 func (collector *wmbusmetersCollector) Collect(ch chan<- prometheus.Metric) {
 
 	addWaterGauge := func(desc *prometheus.Desc, data map[string]interface{}, v float64, lv ...string) {
-		lv = append([]string{data["id"].(string), data["name"].(string), data["meter"].(string), data["prefix"].(string), data["serial_number"].(string), data["current_alarms"].(string), data["previous_alarms"].(string)}, lv...)
+		lv = append([]string{data["id"].(string), data["name"].(string), data["meter"].(string), data["timestamp"].(string), data["prefix"].(string), data["serial_number"].(string), data["current_alarms"].(string), data["previous_alarms"].(string)}, lv...)
 		ch <- prometheus.MustNewConstMetric(desc, prometheus.GaugeValue, v, lv...)
 	}
 
 	addHeatGauge := func(desc *prometheus.Desc, data map[string]interface{}, v float64, lv ...string) {
-		lv = append([]string{data["id"].(string), data["name"].(string), data["meter"].(string)}, lv...)
+		lv = append([]string{data["id"].(string), data["name"].(string), data["meter"].(string), data["timestamp"].(string)}, lv...)
 		ch <- prometheus.MustNewConstMetric(desc, prometheus.GaugeValue, v, lv...)
 	}
 
